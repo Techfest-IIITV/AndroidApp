@@ -3,4 +3,12 @@
     <string name="client_id">1059299836137-41pce639hfl79rmlrfluaamkcjrpbqsq.apps.googleusercontent.com</string>
     <string name="userPrefKey">in.ac.iiitvadodara.cerebro.users</string>
     <string name="userKey">UserID</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
