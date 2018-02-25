@@ -1,8 +1,11 @@
 package in.ac.iiitvadodara.cerebro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,12 +21,29 @@ import in.ac.iiitvadodara.cerebro.R;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    TabLayout tabLayout;
+    ViewPager viewPager;
+    private int[] tabIcons = {
+            R.drawable.ic_code_white_24dp,
+            R.drawable.ic_games_white_24dp,
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
+
+
+        viewPager=(ViewPager) findViewById(R.id.viewpager);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+
+        tabLayout=(TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons();
+        tabLayout.setTabTextColors(getResources().getColor(R.color.tabUnselected),getResources().getColor(R.color.colorAccent));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +62,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void setupTabIcons() {
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
     }
 
     @Override
@@ -82,17 +107,20 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_home) {
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_timeline) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_dashboard) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_sponsors) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_contact_us) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_developers) {
+
+        } else if (id == R.id.nav_logout) {
 
         }
 
