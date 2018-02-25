@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cerebroBg"
-    tools:context="com.example.yash.cerebro_android.Portal">
+    tools:context="in.ac.iiitvadodara.cerebro.Portal">
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_google_sign_in"
