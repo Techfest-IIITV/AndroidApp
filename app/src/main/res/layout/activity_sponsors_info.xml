@@ -5,7 +5,7 @@
     android:layout_margin="1dp"
     android:background="@color/dark_gray"
     android:orientation="vertical"
-    tools:context="in.ac.iiitvadodara.cerebro.SponsorsFragment">
+    tools:context="in.ac.iiitvadodara.cerebro.SponsorsInfoActivity">
 
     <ImageView
         android:layout_width="match_parent"
