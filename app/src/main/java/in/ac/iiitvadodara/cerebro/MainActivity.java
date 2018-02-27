@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import in.ac.iiitvadodara.cerebro.DashBoard.DashboardFragment;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -113,6 +115,13 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
 
         } else if (id == R.id.nav_dashboard) {
+            fragmentClass = DashboardFragment.class;
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
 
         } else if (id == R.id.nav_sponsors) {
             fragmentClass = SponsorsFragment.class;

@@ -22,10 +22,10 @@
         <activity android:name=".Portal" />
         <activity android:name=".ProfileInfo" />
         <activity android:name=".Index" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginScreen">
-        </activity>
+        <activity android:name=".LoginScreen"></activity>
     </application>
 
 </manifest>
