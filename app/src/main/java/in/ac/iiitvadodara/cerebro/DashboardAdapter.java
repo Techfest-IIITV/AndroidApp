@@ -1,4 +1,4 @@
-package in.ac.iiitvadodara.cerebro.DashBoard;
+package in.ac.iiitvadodara.cerebro;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,17 +12,17 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import in.ac.iiitvadodara.cerebro.DashBoard.Dashboard;
+import in.ac.iiitvadodara.cerebro.Event;
 import in.ac.iiitvadodara.cerebro.R;
 
 /**
  * Created by harshendra on 28/2/18.
  */
 
-public class DashboardAdapter extends ArrayAdapter<Dashboard> {
+public class DashboardAdapter extends ArrayAdapter<Event> {
 
-    public DashboardAdapter(Context context, List<Dashboard> earthquakes) {
-        super(context, 0, earthquakes);
+    public DashboardAdapter(Context context, List<Event> events) {
+        super(context, 0, events);
     }
 
     @NonNull
@@ -35,7 +35,7 @@ public class DashboardAdapter extends ArrayAdapter<Dashboard> {
                     R.layout.dashboard_list_item, parent, false);
         }
 
-        Dashboard currentPosition = getItem(position);
+        Event currentPosition = getItem(position);
 
         ImageView eventIcon = (ImageView) listItemView.findViewById(R.id.dashboard_event_icon);
         eventIcon.setImageResource(currentPosition.getEventIconId());
