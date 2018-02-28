@@ -24,10 +24,10 @@
         <activity android:name=".EventInfoActivity" />
         <activity android:name=".SponsorsInfoActivity" />
         <activity android:name=".Index" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginScreen">
-        </activity>
+        <activity android:name=".LoginScreen"></activity>
     </application>
 
 </manifest>
