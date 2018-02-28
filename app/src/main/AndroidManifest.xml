@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".Portal" />
         <activity android:name=".ProfileInfo" />
+        <activity android:name=".EventInfoActivity" />
+        <activity android:name=".SponsorsInfoActivity" />
         <activity android:name=".Index" />
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
