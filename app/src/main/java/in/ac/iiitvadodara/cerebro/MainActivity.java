@@ -92,6 +92,13 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
 
         } else if (id == R.id.nav_dashboard) {
+            fragmentClass = DashboardFragment.class;
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
 
         } else if (id == R.id.nav_sponsors) {
             fragmentClass = SponsorsFragment.class;
