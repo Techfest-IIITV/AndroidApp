@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -26,17 +29,19 @@ public class CodingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_coding, container, false);
-        ImageView image = v.findViewById(R.id.image);
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(), EventInfoActivity.class);
-                startActivity(i);
-            }
-        });
-        // Inflate the layout for this fragment
-        return v;
+        View rootView = inflater.inflate(R.layout.fragment_coding, container, false);
+
+        final ArrayList<Event> event = new ArrayList<Event>();
+
+        event.add(new Event(R.drawable.big_tech_quiz,"Event One","Your Event related notifications"));
+        event.add(new Event(R.drawable.big_tech_quiz,"Event Two","Your Event related notifications"));
+        event.add(new Event(R.drawable.big_tech_quiz,"Event Three","Your Event related notifications"));
+        event.add(new Event(R.drawable.big_tech_quiz,"Event Four","Your Event related notifications"));
+
+        DashboardAdapter adapter = new DashboardAdapter(getActivity(), event);
+        ListView listView =(ListView)rootView.findViewById(R.id.event_list);
+        listView.setAdapter(adapter);
+        return rootView;
     }
 
 }
