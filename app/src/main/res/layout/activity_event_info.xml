@@ -18,32 +18,36 @@
 
             <ImageView
                 android:id="@+id/event_image"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="4dp"
+                android:layout_width="216dp"
+                android:layout_height="216dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="4dp"
                 android:scaleType="fitXY"
-                tools:src="@drawable/cerebro" />
+                android:background="@drawable/circle"
+                android:padding="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/big_tech_quiz" />
 
             <TextView
                 android:id="@+id/event_participants"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
                 android:layout_margin="16dp"
-                android:background="@color/colorAccent"
+                android:background="@drawable/circle"
+                android:gravity="center"
                 android:padding="4dp"
                 android:text="8000"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/event_image"
-                app:layout_constraintRight_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/event_image" />
+                app:layout_constraintBottom_toTopOf="@+id/event_info"
+                app:layout_constraintEnd_toEndOf="@+id/event_image" />
 
             <LinearLayout
                 android:id="@+id/event_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:padding="16dp"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/event_image">
 
@@ -127,14 +131,16 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
 
-            <Button
+            <TextView
                 android:id="@+id/event_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/colorAccent"
+                android:layout_margin="24dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
                 android:text="Price" />
 
             <Button
@@ -142,8 +148,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/colorAccent"
+                android:layout_margin="24dp"
+                android:background="@color/colorAccent"
                 android:text="Register" />
         </RelativeLayout>
     </LinearLayout>
