@@ -34,7 +34,7 @@ public class DashboardFragment extends Fragment {
         event.add(new Event(R.drawable.big_tech_quiz,"Event Four","Your Event related notifications"));
 
         DashboardAdapter adapter = new DashboardAdapter(getActivity(), event);
-        ListView listView =(ListView)rootView.findViewById(R.id.list);
+        ListView listView =(ListView)rootView.findViewById(R.id.event_list);
         listView.setAdapter(adapter);
         return rootView;
     }

@@ -29,20 +29,23 @@ public class DashboardAdapter extends ArrayAdapter<Event> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.dashboard_list_item, parent, false);
+                    R.layout.event_item, parent, false);
         }
 
         Event currentPosition = getItem(position);
 
-        ImageView eventIcon = (ImageView) listItemView.findViewById(R.id.dashboard_event_icon);
+        ImageView eventIcon = (ImageView) listItemView.findViewById(R.id.image);
         eventIcon.setImageResource(currentPosition.getEventIconId());
         eventIcon.setVisibility(View.VISIBLE);
 
-        TextView eventName = (TextView) listItemView.findViewById(R.id.dashboard_event_name) ;
+        TextView eventName = (TextView) listItemView.findViewById(R.id.name) ;
         eventName.setText(currentPosition.getEventName());
 
-        TextView eventNotification = (TextView) listItemView.findViewById(R.id.dashboard_event_notification);
-        eventNotification.setText(currentPosition.getEventNotification());
+        TextView eventDescription = (TextView) listItemView.findViewById(R.id.description) ;
+        eventDescription.setText(currentPosition.getEventDescription());
+
+//        TextView eventNotification = (TextView) listItemView.findViewById(R.id.dashboard_event_notification);
+//        eventNotification.setText(currentPosition.getEventNotification());
 
         return listItemView;
     }
