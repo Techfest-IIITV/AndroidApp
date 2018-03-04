@@ -79,9 +79,17 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
-            finish();
+//            Intent intent = new Intent(this,MainActivity.class);
+//            startActivity(intent);
+//            finish();
+            fragmentClass = HomeScreenFragment.class;
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
+
         } else if (id == R.id.nav_timeline) {
             fragmentClass = TimelineFragment.class;
             try {
