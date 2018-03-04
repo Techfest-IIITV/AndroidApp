@@ -58,7 +58,6 @@ public class DashboardAdapter extends ArrayAdapter<Event> {
 
         TextView eventDescription = (TextView) listItemView.findViewById(R.id.description) ;
         eventDescription.setText(currentPosition.getEventDescription());
-
         return listItemView;
     }
 }

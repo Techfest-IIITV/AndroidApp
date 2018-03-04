@@ -23,10 +23,13 @@ public class MainActivity extends AppCompatActivity
             R.drawable.ic_code_white_24dp,
             R.drawable.ic_games_white_24dp,
     };
+    private boolean bool_home;
+    Fragment fragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        bool_home = true;
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -73,15 +76,18 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Fragment fragment = null;
         Class fragmentClass = null;
 
         FragmentManager fragmentManager = getSupportFragmentManager();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
-            finish();
+            if(bool_home) {
+                drawer.closeDrawer(GravityCompat.START);
+            } else {
+                fragmentManager.beginTransaction().remove(fragment).commit();
+                bool_home = true;
+            }
         } else if (id == R.id.nav_timeline) {
             fragmentClass = TimelineFragment.class;
             try {
@@ -90,7 +96,7 @@ public class MainActivity extends AppCompatActivity
                 e.printStackTrace();
             }
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
-
+            bool_home = false;
         } else if (id == R.id.nav_dashboard) {
             fragmentClass = DashboardFragment.class;
             try {
@@ -99,7 +105,7 @@ public class MainActivity extends AppCompatActivity
                 e.printStackTrace();
             }
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
-
+            bool_home = false;
         } else if (id == R.id.nav_sponsors) {
             fragmentClass = SponsorsFragment.class;
             try {
@@ -108,7 +114,7 @@ public class MainActivity extends AppCompatActivity
                 e.printStackTrace();
             }
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
-
+            bool_home = false;
         } else if (id == R.id.nav_contact_us) {
             fragmentClass = ContactUsFragment.class;
             try {
@@ -117,7 +123,7 @@ public class MainActivity extends AppCompatActivity
                 e.printStackTrace();
             }
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
-
+            bool_home = false;
         } else if (id == R.id.nav_developers) {
             fragmentClass = DevelopersFragment.class;
             try {
@@ -126,13 +132,15 @@ public class MainActivity extends AppCompatActivity
                 e.printStackTrace();
             }
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
-
+            bool_home = false;
         } else if (id == R.id.nav_logout) {
+            bool_home = false;
             Intent intent = new Intent(this,LoginScreen.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            finish();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
