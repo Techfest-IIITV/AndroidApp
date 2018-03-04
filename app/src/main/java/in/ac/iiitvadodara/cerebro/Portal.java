@@ -69,7 +69,7 @@ public class Portal extends AppCompatActivity {
     }
 
     private void updateUI() {
-        Intent intent = new Intent(mContext, ProfileInfo.class);
+        Intent intent = new Intent(mContext, MainActivity.class);
         startActivity(intent);
         finish();
     }
@@ -84,7 +84,7 @@ public class Portal extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
-                Log.w(TAG, "Google Sing In Failed", e);
+                Log.w(TAG, "Google Sign In Failed", e);
             }
         }
     }
