@@ -1,14 +1,18 @@
 package in.ac.iiitvadodara.cerebro;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -32,7 +36,7 @@ public class DashboardAdapter extends ArrayAdapter<Event> {
                     R.layout.event_item, parent, false);
         }
 
-        Event currentPosition = getItem(position);
+        final Event currentPosition = getItem(position);
 
         ImageView eventIcon = (ImageView) listItemView.findViewById(R.id.image);
         eventIcon.setImageResource(currentPosition.getEventIconId());
@@ -41,14 +45,20 @@ public class DashboardAdapter extends ArrayAdapter<Event> {
         TextView eventName = (TextView) listItemView.findViewById(R.id.name) ;
         eventName.setText(currentPosition.getEventName());
 
+        LinearLayout item = (LinearLayout) listItemView.findViewById(R.id.itemLinearLayout);
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), currentPosition.getEventName(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getContext(), EventInfoActivity.class);
+//              i.putExtra();
+                getContext().startActivity(i);
+            }
+        });
+
         TextView eventDescription = (TextView) listItemView.findViewById(R.id.description) ;
         eventDescription.setText(currentPosition.getEventDescription());
 
-//        TextView eventNotification = (TextView) listItemView.findViewById(R.id.dashboard_event_notification);
-//        eventNotification.setText(currentPosition.getEventNotification());
-
         return listItemView;
     }
-
-
 }

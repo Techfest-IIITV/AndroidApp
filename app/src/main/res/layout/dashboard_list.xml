@@ -15,6 +15,7 @@
         android:orientation="vertical"
         android:drawSelectorOnTop="true"
         android:dividerHeight="10.0sp"
-        android:divider="@android:color/transparent">
+        android:divider="@android:color/transparent"
+        android:clickable="true">
     </ListView>
 </FrameLayout>
