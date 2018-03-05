@@ -135,8 +135,11 @@ public class MainActivity extends AppCompatActivity
             bool_home = false;
         } else if (id == R.id.nav_logout) {
             bool_home = false;
-            Intent intent = new Intent(this,LoginScreen.class);
+            Intent intent = new Intent(this,Portal.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        } else if (id == R.id.nav_edit_profile) {
+            Intent intent = new Intent(this,ProfileInfo.class);
             startActivity(intent);
             finish();
         }
