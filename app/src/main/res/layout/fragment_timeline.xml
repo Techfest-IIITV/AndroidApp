@@ -21,7 +21,7 @@
         <LinearLayout
             android:id="@+id/event_one"
             style="@style/timeline_event_left"
-            android:layout_marginTop="35dp">
+            android:layout_marginTop="24dp">
 
             <View
                 android:id="@+id/horizontal_line1"
