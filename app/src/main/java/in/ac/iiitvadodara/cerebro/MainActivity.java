@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -134,14 +136,16 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
             bool_home = false;
         } else if (id == R.id.nav_logout) {
+            FirebaseAuth.getInstance().signOut();
             bool_home = false;
-            Intent intent = new Intent(this,Portal.class);
+            Intent intent = new Intent(MainActivity.this,Portal.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
 
         } else if (id == R.id.nav_edit_profile) {
             Intent intent = new Intent(this,ProfileInfo.class);
             startActivity(intent);
-            finish();
         }
 
         drawer.closeDrawer(GravityCompat.START);
