@@ -22,7 +22,7 @@
                 android:id="@+id/dashboard_event_icon"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_margin="5dp"
+                android:layout_margin="16dp"
                 android:background="@drawable/circle"
                 android:padding="5dp"
                 android:src="@drawable/big_tech_quiz" />

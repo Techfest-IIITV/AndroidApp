@@ -41,7 +41,7 @@
 
                     <TextView
                         style="@style/contact_us_event_name"
-                        android:layout_alignBottom="@+id/image_event_one"
+                        android:textStyle="bold"
                         android:text="Event One" />
 
                 </RelativeLayout>
@@ -52,7 +52,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingRight="8dp"
+                        android:gravity="end">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -72,7 +74,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="right"
+                        android:gravity="start"
+                        android:paddingLeft="8dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -116,17 +119,17 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary">
+                    android:background="#110c11">
 
                     <ImageView
                         android:id="@+id/image_event_two"
                         style="@style/contact_event_image"
-                        android:src="@drawable/cerebro" />
+                        android:src="@drawable/big_tech_quiz" />
 
                     <TextView
                         style="@style/contact_us_event_name"
-                        android:layout_alignBottom="@+id/image_event_two"
-                        android:text="Event Two" />
+                        android:text="Event Two"
+                        android:textStyle="bold"/>
 
                 </RelativeLayout>
 
@@ -136,7 +139,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingRight="8dp"
+                        android:gravity="end">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -156,7 +161,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="right"
+                        android:gravity="start"
+                        android:paddingLeft="8dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -200,17 +206,17 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary">
+                    android:background="#110c11">
 
                     <ImageView
                         android:id="@+id/image_event_three"
                         style="@style/contact_event_image"
-                        android:src="@drawable/cerebro" />
+                        android:src="@drawable/big_tech_quiz" />
 
                     <TextView
                         style="@style/contact_us_event_name"
-                        android:layout_alignBottom="@+id/image_event_three"
-                        android:text="Event Three" />
+                        android:text="Event Three"
+                        android:textStyle="bold"/>
 
                 </RelativeLayout>
 
@@ -220,7 +226,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingRight="8dp"
+                        android:gravity="end">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -240,7 +248,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="right"
+                        android:gravity="start"
+                        android:paddingLeft="8dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -262,6 +271,7 @@
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
 
     </LinearLayout>
 

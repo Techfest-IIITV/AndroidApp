@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/custom_border"
     android:orientation="horizontal"
     android:id="@+id/itemLinearLayout">
@@ -12,50 +13,48 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:scaleType="fitXY"
+        android:background="@drawable/circle"
+        android:padding="4dp"
         android:src="@drawable/big_tech_quiz" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="16dp">
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Event Name"
-            android:layout_weight="1"
-            android:textColor="#FFF"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:layout_weight="1"
-            android:textColor="#FFF"
-            android:textStyle="bold"/>
+
         <LinearLayout
+            android:id="@+id/linear_layout"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:orientation="horizontal">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleX="1"
-                android:scaleY="1"
-                android:checked="true"
-                android:layout_weight="0.75"
-                android:buttonTint="@color/colorAccent"
-                android:text="Tag"
-                android:textColor="#FFF"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Event Name"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="Description"
+                android:gravity="center_vertical"
+                android:textColor="#FFF"
+                android:textStyle="bold" />
+
             <Button
-                android:layout_weight="0.25"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
                 android:text="More"
                 android:textColor="#FFF"
-                android:background="@color/colorAccent"/>
+                android:layout_gravity="end"/>
 
         </LinearLayout>
-    </LinearLayout>
+
+
 </LinearLayout>
