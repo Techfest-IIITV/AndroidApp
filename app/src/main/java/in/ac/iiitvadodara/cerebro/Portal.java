@@ -29,7 +29,7 @@ public class Portal extends AppCompatActivity {
     private static final int RC_SIGN_IN = 9001;
     private Context mContext;
 
-    private GoogleSignInClient mClient;
+    public static GoogleSignInClient mClient;
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser = null;
 

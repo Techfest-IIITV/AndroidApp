@@ -19,19 +19,8 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean loggedIn = pref.getBoolean("LOGGED_IN", true);
-        SharedPreferences.Editor editor = pref.edit();
+        handler=new Handler();
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
-            editor.putBoolean("LOGGED_IN", true);
-        }
-        else {
-            editor.putBoolean("LOGGED_IN", false);
-        }
-        editor.commit();
-        if(!loggedIn) {
-            handler=new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -42,7 +31,6 @@ public class SplashScreen extends AppCompatActivity {
             },1000);
         }
         else {
-            handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
