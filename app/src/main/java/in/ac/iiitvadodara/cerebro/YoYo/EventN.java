@@ -1,32 +1,75 @@
 package in.ac.iiitvadodara.cerebro.YoYo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by neelansh on 6/3/18.
  */
 
-public class EventN {
+public class EventN implements Parcelable{
 
-    private ArrayList<ContactS> contact;
+    private ArrayList<HashMap<String, String>> contact;
     private String description;
-    private String endTime;
+    private String endtime;
     private int id;
+    private int type;
     private String img;
     private String name;
-    private ArrayList<Participant> participants;
+    private HashMap<String, HashMap<String, String>> participants;
     private String prices;
     private ArrayList<String> rules;
+
+    protected EventN(Parcel in) {
+        description = in.readString();
+        endtime = in.readString();
+        id = in.readInt();
+        type = in.readInt();
+        img = in.readString();
+        name = in.readString();
+        prices = in.readString();
+        rules = in.createStringArrayList();
+        startTime = in.readString();
+        teamSize = in.readInt();
+        venue = in.readString();
+    }
+
+    public EventN() {
+    }
+
+    public static final Creator<EventN> CREATOR = new Creator<EventN>() {
+        @Override
+        public EventN createFromParcel(Parcel in) {
+            return new EventN(in);
+        }
+
+        @Override
+        public EventN[] newArray(int size) {
+            return new EventN[size];
+        }
+    };
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     private String startTime;
     private int teamSize;
     private String venue;
 
-    public ArrayList<ContactS> getContact() {
+    public ArrayList<HashMap<String, String>> getContact() {
         return contact;
     }
 
-    public void setContact(ArrayList<ContactS> contact) {
+    public void setContact(ArrayList<HashMap<String, String>> contact) {
         this.contact = contact;
     }
 
@@ -38,13 +81,13 @@ public class EventN {
         this.description = description;
     }
 
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
+//    public String getEndTime() {
+//        return endTime;
+//    }
+//
+//    public void setEndTime(String endTime) {
+//        this.endTime = endTime;
+//    }
 
     public int getId() {
         return id;
@@ -70,11 +113,11 @@ public class EventN {
         this.name = name;
     }
 
-    public ArrayList<Participant> getParticipants() {
+    public HashMap<String, HashMap<String, String>> getParticipants() {
         return participants;
     }
 
-    public void setParticipants(ArrayList<Participant> participants) {
+    public void setParticipants(HashMap<String, HashMap<String, String>> participants) {
         this.participants = participants;
     }
 
@@ -116,5 +159,25 @@ public class EventN {
 
     public void setVenue(String venue) {
         this.venue = venue;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(description);
+        dest.writeString(endtime);
+        dest.writeInt(id);
+        dest.writeInt(type);
+        dest.writeString(img);
+        dest.writeString(name);
+        dest.writeString(prices);
+        dest.writeStringList(rules);
+        dest.writeString(startTime);
+        dest.writeInt(teamSize);
+        dest.writeString(venue);
     }
 }

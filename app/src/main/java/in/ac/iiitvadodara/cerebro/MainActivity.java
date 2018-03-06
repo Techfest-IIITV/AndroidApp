@@ -58,12 +58,10 @@ public class MainActivity extends AppCompatActivity
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         mDatabaseReference.child("events").addValueEventListener(new ValueEventListener() {
-            int i=0;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d("Y O Y O Y O Y O Y O Y O", String.valueOf(dataSnapshot.getChildrenCount()));
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Log.d("Y O Y O Y O Y O Y O Y O", String.valueOf(ds.getChildrenCount()));
-                    Log.d("Y O Y O Y O Y O Y O Y O", String.valueOf(ds.child(String.valueOf(i++)).getChildrenCount()));
                     EventN event = ds.getValue(EventN.class);
                     Log.d("N A M E", event.getName());
                 }
