@@ -20,11 +20,11 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <ImageView
-                android:layout_width="?attr/actionBarSize"
+                android:layout_width="120dp"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title"
-                android:background="@drawable/icon"/>
+                android:background="@drawable/cerebro"/>
 
         </android.support.v7.widget.Toolbar>
 
