@@ -42,13 +42,13 @@ public class DashboardAdapter extends ArrayAdapter<EventN> {
 
         final EventN currentPosition = getItem(position);
 
-        ImageView eventIcon = (ImageView) listItemView.findViewById(R.id.image);
-        if(currentPosition.getId() == 16){
-            eventIcon.setImageResource(15);
-        }else{
-            eventIcon.setImageResource(currentPosition.getId());
-        }
-        eventIcon.setVisibility(View.VISIBLE);
+//        ImageView eventIcon = (ImageView) listItemView.findViewById(R.id.image);
+//        if(currentPosition.getId() == 16){
+//            eventIcon.setImageResource(15);
+//        }else{
+//            eventIcon.setImageResource(currentPosition.getId());
+//        }
+//        eventIcon.setVisibility(View.VISIBLE);
 
         TextView eventName = (TextView) listItemView.findViewById(R.id.name) ;
         eventName.setText(currentPosition.getName());
@@ -59,7 +59,7 @@ public class DashboardAdapter extends ArrayAdapter<EventN> {
             public void onClick(View v) {
                 Toast.makeText(getContext(), currentPosition.getName(), Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getContext(), EventInfoActivity.class);
-//              i.putExtra();
+                i.putExtra("event",currentPosition);
                 getContext().startActivity(i);
             }
         });

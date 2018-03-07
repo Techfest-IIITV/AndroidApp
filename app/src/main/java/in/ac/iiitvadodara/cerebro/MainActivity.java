@@ -15,10 +15,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,12 +42,14 @@ public class MainActivity extends AppCompatActivity
 
     TabLayout tabLayout;
     ViewPager viewPager;
+    ViewPagerAdapter adapter;
     private int[] tabIcons = {
             R.drawable.ic_code_white_24dp,
             R.drawable.ic_games_white_24dp,
     };
     private boolean bool_home;
     Fragment fragment = null;
+    private ArrayList<EventN> eventList;
 
     private DatabaseReference mDatabaseReference;
 
@@ -55,16 +62,22 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        eventList = new ArrayList<EventN>();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         mDatabaseReference.child("events").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d("Y O Y O Y O Y O Y O Y O", String.valueOf(dataSnapshot.getChildrenCount()));
+                if(dataSnapshot == null){
+                    Log.d("N U L L", "N U L L");
+                }
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     EventN event = ds.getValue(EventN.class);
+                    eventList.add(event);
                     Log.d("N A M E", event.getName());
                 }
+                CodingFragment.adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -74,7 +87,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         viewPager=(ViewPager) findViewById(R.id.viewpager);
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), eventList);
         viewPager.setAdapter(adapter);
 
         tabLayout=(TabLayout) findViewById(R.id.tabs);
@@ -138,7 +151,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_dashboard) {
             fragmentClass = DashboardFragment.class;
             try {
+                Bundle bundle = new Bundle();
+                bundle.putParcelableArrayList("eventList", eventList);
                 fragment = (Fragment) fragmentClass.newInstance();
+                fragment.setArguments(bundle);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -187,13 +203,30 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    private void signOut() {
 
-        Portal.mClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Log.e("Dani", "daniels");
-            }
-        });
+    GoogleApiClient mGoogleApiClient;
+    @Override
+    protected void onStart() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+        mGoogleApiClient.connect();
+        super.onStart();
+    }
+
+    private void signOut() {
+        FirebaseAuth.getInstance().signOut();
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        // ...
+                        Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
+
+                    }
+                });
     }
 }

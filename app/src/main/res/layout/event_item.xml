@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     android:background="@drawable/custom_border"
     android:orientation="horizontal"
     android:id="@+id/itemLinearLayout">
@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="Event Name"
             android:layout_weight="1"
             android:textColor="#FFF"
@@ -29,33 +29,10 @@
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="Description"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textColor="#FFF"
             android:textStyle="bold"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:orientation="horizontal">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleX="1"
-                android:scaleY="1"
-                android:checked="true"
-                android:layout_weight="0.75"
-                android:buttonTint="@color/colorAccent"
-                android:text="Tag"
-                android:textColor="#FFF"/>
-            <Button
-                android:layout_weight="0.25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="More"
-                android:textColor="#FFF"
-                android:background="@color/colorAccent"/>
-
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

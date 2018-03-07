@@ -29,33 +29,17 @@ public class DashboardFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private DatabaseReference mDatabaseReference;
-
+    private ArrayList<EventN> eventlist;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dashboard_list, container,false);
 
-        final ArrayList<EventN> eventlist = new ArrayList<EventN>();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
-
-        mDatabaseReference.child("events").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d("Y O Y O Y O Y O Y O Y O", String.valueOf(dataSnapshot.getChildrenCount()));
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    EventN event = ds.getValue(EventN.class);
-                    Log.d("N A M E", event.getName());
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+        eventlist = new ArrayList<EventN>();
+        if(getArguments() != null){
+            eventlist = getArguments().getParcelableArrayList("eventList");
+        }
 
         DashboardAdapter adapter = new DashboardAdapter(getActivity(), eventlist);
         ListView listView =(ListView)rootView.findViewById(R.id.event_list);

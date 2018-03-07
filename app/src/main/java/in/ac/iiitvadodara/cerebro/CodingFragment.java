@@ -11,12 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -33,8 +28,8 @@ public class CodingFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private DatabaseReference mDatabaseReference;
-
+    private ArrayList<EventN> eventlist;
+    static DashboardAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,27 +37,14 @@ public class CodingFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_coding, container, false);
 
-        final ArrayList<EventN> eventlist = new ArrayList<EventN>();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        eventlist = new ArrayList<EventN>();
+        if(getArguments() != null){
+            eventlist = getArguments().getParcelableArrayList("eventList");
+            Toast.makeText(getActivity(), "Code null", Toast.LENGTH_SHORT).show();
+        }
 
-        mDatabaseReference.child("events").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d("Y O Y O Y O Y O Y O Y O", String.valueOf(dataSnapshot.getChildrenCount()));
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    EventN event = ds.getValue(EventN.class);
-                    Log.d("N A M E", event.getName());
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-        DashboardAdapter adapter = new DashboardAdapter(getActivity(), eventlist);
+        Toast.makeText(getActivity(), "Cod", Toast.LENGTH_SHORT).show();
+        adapter = new DashboardAdapter(getActivity(), eventlist);
         ListView listView =(ListView)rootView.findViewById(R.id.event_list);
         listView.setAdapter(adapter);
         return rootView;

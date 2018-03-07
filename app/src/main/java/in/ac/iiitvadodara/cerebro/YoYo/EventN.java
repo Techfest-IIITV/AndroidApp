@@ -2,6 +2,7 @@ package in.ac.iiitvadodara.cerebro.YoYo;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ public class EventN implements Parcelable{
 
     private ArrayList<HashMap<String, String>> contact;
     private String description;
-    private String endtime;
+    private String endTime;
     private int id;
     private int type;
     private String img;
@@ -23,10 +24,14 @@ public class EventN implements Parcelable{
     private HashMap<String, HashMap<String, String>> participants;
     private String prices;
     private ArrayList<String> rules;
+    private String startTime;
+    private int teamSize;
+    private String venue;
+
 
     protected EventN(Parcel in) {
         description = in.readString();
-        endtime = in.readString();
+        endTime = in.readString();
         id = in.readInt();
         type = in.readInt();
         img = in.readString();
@@ -36,6 +41,8 @@ public class EventN implements Parcelable{
         startTime = in.readString();
         teamSize = in.readInt();
         venue = in.readString();
+        ArrayList<String> contactNumber = in.createStringArrayList();
+        ArrayList<String> contactName = in.createStringArrayList();
     }
 
     public EventN() {
@@ -61,10 +68,6 @@ public class EventN implements Parcelable{
         this.type = type;
     }
 
-    private String startTime;
-    private int teamSize;
-    private String venue;
-
     public ArrayList<HashMap<String, String>> getContact() {
         return contact;
     }
@@ -81,13 +84,13 @@ public class EventN implements Parcelable{
         this.description = description;
     }
 
-//    public String getEndTime() {
-//        return endTime;
-//    }
-//
-//    public void setEndTime(String endTime) {
-//        this.endTime = endTime;
-//    }
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
     public int getId() {
         return id;
@@ -169,7 +172,7 @@ public class EventN implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(description);
-        dest.writeString(endtime);
+        dest.writeString(endTime);
         dest.writeInt(id);
         dest.writeInt(type);
         dest.writeString(img);
@@ -179,5 +182,15 @@ public class EventN implements Parcelable{
         dest.writeString(startTime);
         dest.writeInt(teamSize);
         dest.writeString(venue);
+
+        ArrayList<String> contactNumber = new ArrayList<>();
+        ArrayList<String> contactName = new ArrayList<>();
+
+        for(HashMap<String, String> i : contact){
+            contactName.add(i.get("name"));
+            contactNumber.add(i.get("number"));
+        }
+        dest.writeStringList(contactName);
+        dest.writeStringList(contactNumber);
     }
 }
