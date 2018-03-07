@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity
                     Log.d("N A M E", event.getName());
                 }
                 CodingFragment.adapter.notifyDataSetChanged();
+                GamingFragment.adapter.notifyDataSetChanged();
             }
 
             @Override
