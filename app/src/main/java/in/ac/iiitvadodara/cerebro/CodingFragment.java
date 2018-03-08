@@ -38,12 +38,10 @@ public class CodingFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_coding, container, false);
 
         eventlist = new ArrayList<EventN>();
-        if(getArguments() != null){
+        if(getArguments() != null) {
             eventlist = getArguments().getParcelableArrayList("eventList");
-            Toast.makeText(getActivity(), "Code null", Toast.LENGTH_SHORT).show();
+            Log.e("dssds", eventlist.toString());
         }
-
-        Toast.makeText(getActivity(), "Cod", Toast.LENGTH_SHORT).show();
         adapter = new DashboardAdapter(getActivity(), eventlist);
         ListView listView =(ListView)rootView.findViewById(R.id.event_list);
         listView.setAdapter(adapter);

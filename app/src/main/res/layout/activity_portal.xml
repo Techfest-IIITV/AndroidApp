@@ -33,7 +33,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="9th and 10th March"
+            android:text="10th and 11th March"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
