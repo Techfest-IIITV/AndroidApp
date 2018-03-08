@@ -36,8 +36,6 @@ public class GamingFragment extends Fragment {
         eventlist = new ArrayList<EventN>();
         if(getArguments() != null){
             eventlist = getArguments().getParcelableArrayList("eventList");
-            Toast.makeText(getActivity(), "Game null", Toast.LENGTH_SHORT).show();
-            Log.e("CHECK",eventlist.toString());
         }
 
         adapter = new DashboardAdapter(getActivity(), eventlist);
@@ -45,5 +43,4 @@ public class GamingFragment extends Fragment {
         listView.setAdapter(adapter);
         return rootView;
     }
-
 }

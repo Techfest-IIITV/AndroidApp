@@ -64,11 +64,14 @@ public class Portal extends AppCompatActivity {
         super.onStart();
         mCurrentUser = mAuth.getCurrentUser();
         if (mCurrentUser != null) {
+            MainActivity.email_s = mCurrentUser.getEmail();
+            MainActivity.name_s = mCurrentUser.getDisplayName();
             updateUI();
         }
     }
 
     private void updateUI() {
+        mCurrentUser = mAuth.getCurrentUser();
         Intent intent = new Intent(mContext, MainActivity.class);
         startActivity(intent);
         finish();
@@ -83,6 +86,8 @@ public class Portal extends AppCompatActivity {
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
+                MainActivity.email_s =account.getEmail();
+                MainActivity.name_s = account.getDisplayName();
                 updateUI();
             } catch (ApiException e) {
                 Log.w(TAG, "Google Sign In Failed", e);

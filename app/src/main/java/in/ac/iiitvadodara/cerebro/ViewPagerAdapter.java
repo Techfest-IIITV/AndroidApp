@@ -15,11 +15,12 @@ import in.ac.iiitvadodara.cerebro.YoYo.EventN;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    ArrayList<EventN> eventList;
+    ArrayList<EventN> gamingList, codingList;
 
-    public ViewPagerAdapter(FragmentManager fm, ArrayList<EventN> eventList) {
+    public ViewPagerAdapter(FragmentManager fm, ArrayList<EventN> gamingList, ArrayList<EventN> codingList) {
         super(fm);
-        this.eventList = eventList;
+        this.gamingList = gamingList;
+        this.codingList = codingList;
     }
 
     @Override
@@ -30,13 +31,14 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Bundle bundle = new Bundle();
-        bundle.putParcelableArrayList("eventList", eventList);
         switch (position) {
             case 0:
+                bundle.putParcelableArrayList("eventList", codingList);
                 CodingFragment fragment = new CodingFragment();
                 fragment.setArguments(bundle);
                 return fragment;
             case 1:
+                bundle.putParcelableArrayList("eventList", gamingList);
                 GamingFragment fragment2 = new GamingFragment();
                 fragment2.setArguments(bundle);
                 return fragment2;

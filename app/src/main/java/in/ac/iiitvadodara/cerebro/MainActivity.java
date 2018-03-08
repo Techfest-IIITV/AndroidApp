@@ -15,8 +15,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -27,11 +31,14 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -47,9 +54,12 @@ public class MainActivity extends AppCompatActivity
             R.drawable.ic_code_white_24dp,
             R.drawable.ic_games_white_24dp,
     };
+    static String name_s = " ", email_s = " ";
     private boolean bool_home;
     Fragment fragment = null;
     private ArrayList<EventN> eventList;
+    private ArrayList<EventN> codingList;
+    private ArrayList<EventN> gamingList;
 
     private DatabaseReference mDatabaseReference;
 
@@ -63,6 +73,8 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         eventList = new ArrayList<EventN>();
+        gamingList = new ArrayList<EventN>();
+        codingList = new ArrayList<EventN>();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         mDatabaseReference.child("events").addValueEventListener(new ValueEventListener() {
@@ -74,10 +86,15 @@ public class MainActivity extends AppCompatActivity
                 }
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     EventN event = ds.getValue(EventN.class);
+                    if(event.getType() == 1)
+                        codingList.add(event);
+                    else
+                        gamingList.add(event);
                     eventList.add(event);
                     Log.d("N A M E", event.getName());
                 }
                 CodingFragment.adapter.notifyDataSetChanged();
+                GamingFragment.adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -87,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         viewPager=(ViewPager) findViewById(R.id.viewpager);
-        adapter = new ViewPagerAdapter(getSupportFragmentManager(), eventList);
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), gamingList, codingList);
         viewPager.setAdapter(adapter);
 
         tabLayout=(TabLayout) findViewById(R.id.tabs);
@@ -103,6 +120,21 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header=navigationView.getHeaderView(0);
+
+        TextView name = (TextView)header.findViewById(R.id.username);
+        TextView email = (TextView)header.findViewById(R.id.useremail);
+        ImageView image = header.findViewById(R.id.userimage);
+
+        name.setText(name_s);
+        email.setText(email_s);
+
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            name.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+            email.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+           Glide.with(this).load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString()).into(image);
+        }
 
     }
 
@@ -160,15 +192,6 @@ public class MainActivity extends AppCompatActivity
             }
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
             bool_home = false;
-        } else if (id == R.id.nav_sponsors) {
-            fragmentClass = SponsorsFragment.class;
-            try {
-                fragment = (Fragment) fragmentClass.newInstance();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
-            bool_home = false;
         } else if (id == R.id.nav_contact_us) {
             fragmentClass = ContactUsFragment.class;
             try {
@@ -178,16 +201,18 @@ public class MainActivity extends AppCompatActivity
             }
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
             bool_home = false;
-        } else if (id == R.id.nav_developers) {
-            fragmentClass = DevelopersFragment.class;
-            try {
-                fragment = (Fragment) fragmentClass.newInstance();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
-            bool_home = false;
-        } else if (id == R.id.nav_logout) {
+        }
+//        else if (id == R.id.nav_developers) {
+//            fragmentClass = DevelopersFragment.class;
+//            try {
+//                fragment = (Fragment) fragmentClass.newInstance();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
+//            bool_home = false;
+//        }
+        else if (id == R.id.nav_logout) {
             bool_home = false;
             signOut();
             Intent intent = new Intent(MainActivity.this,Portal.class);
@@ -195,10 +220,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             finish();
 
-        } else if (id == R.id.nav_edit_profile) {
-            Intent intent = new Intent(this,ProfileInfo.class);
-            startActivity(intent);
         }
+//        else if (id == R.id.nav_edit_profile) {
+//            Intent intent = new Intent(this,ProfileInfo.class);
+//            startActivity(intent);
+//        }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import in.ac.iiitvadodara.cerebro.YoYo.EventN;
@@ -25,8 +31,12 @@ import in.ac.iiitvadodara.cerebro.YoYo.EventN;
 
 public class DashboardAdapter extends ArrayAdapter<EventN> {
 
+    private List<EventN> list;
+    private HashMap<Integer, EventN> hashMap;
     public DashboardAdapter(Context context, List<EventN> events) {
         super(context, 0, events);
+        list = events;
+        hashMap = new HashMap<>();
     }
 
     @SuppressLint("ResourceType")
@@ -42,23 +52,36 @@ public class DashboardAdapter extends ArrayAdapter<EventN> {
 
         final EventN currentPosition = getItem(position);
 
-//        ImageView eventIcon = (ImageView) listItemView.findViewById(R.id.image);
-//        if(currentPosition.getId() == 16){
-//            eventIcon.setImageResource(15);
-//        }else{
-//            eventIcon.setImageResource(currentPosition.getId());
-//        }
-//        eventIcon.setVisibility(View.VISIBLE);
+        ImageView eventIcon = (ImageView) listItemView.findViewById(R.id.image);
+
+        String image = currentPosition.getImg();
+        if(image != null){
+            Glide.with(getContext()).load(image).into(eventIcon);
+        }else{
+            eventIcon.setImageResource(R.drawable.cerebro1);
+        }
 
         TextView eventName = (TextView) listItemView.findViewById(R.id.name) ;
         eventName.setText(currentPosition.getName());
-
+        for(EventN eventN: list) {
+            hashMap.put(eventN.getId(), eventN);
+        }
         LinearLayout item = (LinearLayout) listItemView.findViewById(R.id.itemLinearLayout);
         item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), currentPosition.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), currentPosition.getName()+" "+currentPosition.getId(), Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getContext(), EventInfoActivity.class);
+                Log.e("Firebase", hashMap.toString());
+                Log.e("Firebase", Integer.toString(currentPosition.getId()));
+                if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+                    if(hashMap.get(currentPosition.getId()).getParticipants().containsKey(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                        i.putExtra("registered",true);
+                    }else{
+                        i.putExtra("registered",false);
+                    }
+                }
+
                 i.putExtra("event",currentPosition);
                 getContext().startActivity(i);
             }

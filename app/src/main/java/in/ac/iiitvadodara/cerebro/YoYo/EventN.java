@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import in.ac.iiitvadodara.cerebro.Event;
+
 /**
  * Created by neelansh on 6/3/18.
  */
@@ -192,5 +194,15 @@ public class EventN implements Parcelable{
         }
         dest.writeStringList(contactName);
         dest.writeStringList(contactNumber);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return ((EventN)obj).id == this.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }
