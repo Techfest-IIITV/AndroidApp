@@ -12,7 +12,7 @@
         <View
             android:id="@+id/vertical_line"
             android:layout_width="2dp"
-            android:layout_height="1100dp"
+            android:layout_height="1440dp"
             android:layout_centerInParent="true"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
@@ -31,10 +31,33 @@
 
             <View style="@style/timeline_circle_style" />
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/cerebro1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ideathon"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5th March , 12:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -43,10 +66,34 @@
             style="@style/timeline_event_right"
             android:layout_below="@+id/event_one">
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/rubik_cube" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rubik's Cube"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th March , 10:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
             <View style="@style/timeline_circle_style" />
 
             <View
@@ -71,10 +118,34 @@
 
             <View style="@style/timeline_circle_style" />
 
-            <include
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/cs_go" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CS:GO"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 10:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -83,10 +154,33 @@
             style="@style/timeline_event_right"
             android:layout_below="@+id/event_three">
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/fifa" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FIFA 15"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 10:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
             <View style="@style/timeline_circle_style" />
 
@@ -111,10 +205,33 @@
 
             <View style="@style/timeline_circle_style" />
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/nfs" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NFS Most Wanted"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 10:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -123,10 +240,33 @@
             style="@style/timeline_event_right"
             android:layout_below="@+id/event_five">
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/clash_royale" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clash Royale"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 10:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
             <View style="@style/timeline_circle_style" />
 
@@ -151,10 +291,33 @@
 
             <View style="@style/timeline_circle_style" />
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/mini_militia" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mini Militia"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 10:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -163,10 +326,33 @@
             style="@style/timeline_event_right"
             android:layout_below="@+id/event_seven">
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/hired" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hired"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 10:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
             <View style="@style/timeline_circle_style" />
 
@@ -191,10 +377,33 @@
 
             <View style="@style/timeline_circle_style" />
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/black_box" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Black Box"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 11:30"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -203,10 +412,33 @@
             style="@style/timeline_event_right"
             android:layout_below="@+id/event_nine">
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/cook_a_code" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cook-A-Code"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 14:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
             <View style="@style/timeline_circle_style" />
 
@@ -231,10 +463,33 @@
 
             <View style="@style/timeline_circle_style" />
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/cerebro1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Robo Showcase"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th march , 14:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -243,15 +498,212 @@
             style="@style/timeline_event_right"
             android:layout_below="@+id/event_eleven">
 
-            <include
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                layout="@layout/timeline_event_block"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/big_tech_quiz" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="The Big Tech Quiz"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11th march , 09:30"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
             <View style="@style/timeline_circle_style" />
 
             <View
                 android:id="@+id/horizontal_line12"
+                android:layout_width="50dp"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/event_thirteen"
+            style="@style/timeline_event_left"
+            android:layout_below="@+id/event_twelve">
+
+            <View
+                android:id="@+id/horizontal_line13"
+                android:layout_width="50dp"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
+
+            <View style="@style/timeline_circle_style" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/relay_code" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Relay Coding"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11th march , 10:30"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/event_fourteen"
+            style="@style/timeline_event_right"
+            android:layout_below="@+id/event_thirteen">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/type_racer" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Type Racer"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11th march , 11:30"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <View style="@style/timeline_circle_style" />
+
+            <View
+                android:id="@+id/horizontal_line14"
+                android:layout_width="50dp"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/event_fifteen"
+            style="@style/timeline_event_left"
+            android:layout_below="@+id/event_fourteen">
+
+            <View
+                android:id="@+id/horizontal_line15"
+                android:layout_width="50dp"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
+
+            <View style="@style/timeline_circle_style" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/tech_hunt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="The Tech Hunt"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11th march , 14:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/event_sixteen"
+            style="@style/timeline_event_right"
+            android:layout_below="@+id/event_fifteen">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/circle"
+                    android:padding="3dp"
+                    android:src="@drawable/cerebro1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Career in Photography"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11th march , 16:00"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <View style="@style/timeline_circle_style" />
+
+            <View
+                android:id="@+id/horizontal_line16"
                 android:layout_width="50dp"
                 android:layout_height="2dp"
                 android:background="@color/colorAccent" />

@@ -59,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1059299836137-bk5p82oqvnonhdh8307pggv6inqgcted.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.ac.iiitvadodara.cerebro",
+            "certificate_hash": "2ad4b84d0ddf0eed20beeec8e708c35606e19d2c"
+          }
+        },
+        {
           "client_id": "1059299836137-9t7qtm9apgfdsj8ul3i96jdqa6mgp4hj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

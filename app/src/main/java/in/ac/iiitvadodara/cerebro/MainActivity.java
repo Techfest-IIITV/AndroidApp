@@ -1,6 +1,5 @@
 package in.ac.iiitvadodara.cerebro;
 
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,23 +21,16 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -202,16 +194,16 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
             bool_home = false;
         }
-//        else if (id == R.id.nav_developers) {
-//            fragmentClass = DevelopersFragment.class;
-//            try {
-//                fragment = (Fragment) fragmentClass.newInstance();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
-//            bool_home = false;
-//        }
+        else if (id == R.id.about_us) {
+            fragmentClass = AboutUsFragment.class;
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            fragmentManager.beginTransaction().replace(R.id.content, fragment).commit();
+            bool_home = false;
+        }
         else if (id == R.id.nav_logout) {
             bool_home = false;
             signOut();

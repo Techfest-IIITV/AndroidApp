@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="120dp"
     android:background="@drawable/custom_border"
     android:orientation="horizontal"
     android:id="@+id/itemLinearLayout">
@@ -12,27 +12,37 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:scaleType="fitXY"
-        android:background="@drawable/custom_border"
-        android:src="@drawable/big_tech_quiz" />
+        android:background="@drawable/circle"
+        android:src="@drawable/big_tech_quiz"
+        android:layout_gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="16dp">
+        android:paddingLeft="16dp"
+        android:layout_gravity="center">
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="Event Name"
             android:textSize="15dp"
+            android:gravity="bottom"
+            android:paddingBottom="4dp"
             android:layout_weight="1.3"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"/>
+
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="Description"
+            android:paddingTop="4dp"
             android:layout_weight="2"
             android:textColor="#FFF"
             android:textStyle="bold"/>
