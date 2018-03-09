@@ -52,6 +52,7 @@ public class EventInfoActivity extends AppCompatActivity implements View.OnClick
             rules = rules + i + "\n";
         }
         Erules.setText(rules);
+        Eimage.setImageResource(R.drawable.cerebro1);
         Glide.with(this).load(event.getImg()).into(Eimage);
 
         if(registered){
