@@ -11,4 +11,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="about_fest">Indian Institute of Information Technology, Vadodara (IIIT-V) is one of the newly formed IIIT by the Ministry of Human Resource Development (MHRD) , Government of India under Public Private Partnership (PPP) model. The partners in this project are Government of India, Government of Gujarat, Gujarat Energy Research and Management Institute, Gujarat State Fertilizers and Chemicals Ltd. and Tata Consultancy Services.\n\nCerebro is the Annual Technical Festival of Indian Institute of Information Technology, Vadodara held in March. It is entirely organized by the Technical Society of IIIT, Vadodara and serves as a platform for technophiles to showcase their creativity and intelligence. The festival aims to bring together great minds through various activities like Technical Workshops, Events, Talks and exhibitions.</string>
+
+
+
 </resources>
