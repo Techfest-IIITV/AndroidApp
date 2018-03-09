@@ -78,10 +78,15 @@ public class MainActivity extends AppCompatActivity
                 }
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     EventN event = ds.getValue(EventN.class);
-                    if(event.getType() == 1)
-                        codingList.add(event);
-                    else
-                        gamingList.add(event);
+                    if(event.getType() == 1){
+                        if(!codingList.contains(event)){
+                            codingList.add(event);
+                        }
+                    } else {
+                        if(!gamingList.contains(event)){
+                            gamingList.add(event);
+                        }
+                    }
                     eventList.add(event);
                     Log.d("N A M E", event.getName());
                 }
