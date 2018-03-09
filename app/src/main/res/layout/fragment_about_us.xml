@@ -57,6 +57,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="80dp"
+            android:id="@+id/pres"
             android:layout_height="80dp"
             android:src="@drawable/ic_launcher_background"
             android:layout_margin="8dp"/>
@@ -81,7 +82,8 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:layout_margin="8dp"/>
+                    android:layout_margin="8dp"
+                    android:id="@+id/vpres1"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,7 +101,8 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:layout_margin="8dp"/>
+                    android:layout_margin="8dp"
+                    android:id="@+id/vpres2"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,7 +117,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="8dp"
-            android:id="@+id/core_team"
             android:layout_marginBottom="8dp">
             <View
                 android:layout_width="1dp"
@@ -122,6 +124,7 @@
                 android:background="@color/colorAccent"
                 android:layout_marginRight="8dp"/>
             <TextView
+                android:id="@+id/core_team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Core Team"
@@ -130,7 +133,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/design_team"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
@@ -142,6 +144,7 @@
                 android:background="@color/colorAccent"
                 android:layout_marginRight="8dp"/>
             <TextView
+                android:id="@+id/design_team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Design Team"
@@ -150,7 +153,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/android_team"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
@@ -162,6 +164,7 @@
                 android:background="@color/colorAccent"
                 android:layout_marginRight="8dp"/>
             <TextView
+                android:id="@+id/android_team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Android Team"
@@ -170,7 +173,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/web_team"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
@@ -182,6 +184,7 @@
                 android:background="@color/colorAccent"
                 android:layout_marginRight="8dp"/>
             <TextView
+                android:id="@+id/web_team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Web Team"

@@ -44,7 +44,7 @@
                         android:layout_height="wrap_content"
                         android:text="Core Team"
                         android:textColor="@android:color/white"
-                        android:textSize="25sp"/>
+                        android:textSize="22sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Neelansh Sahai"
-                        android:textSize="20dp"
+                        android:textSize="17dp"
                         android:paddingLeft="20dp"
                         android:textColor="#ffffff"/>
 
@@ -71,7 +71,7 @@
                         android:paddingRight="50dp"
                         android:text="8318741607"
                         android:textColor="@color/colorAccent"
-                        android:textSize="20dp" />
+                        android:textSize="17dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Monal Shadi"
-                        android:textSize="20dp"
+                        android:textSize="17dp"
                         android:paddingLeft="20dp"
                         android:textColor="#ffffff"/>
 
@@ -98,7 +98,7 @@
                         android:paddingRight="50dp"
                         android:text="8446402975"
                         android:textColor="@color/colorAccent"
-                        android:textSize="20dp" />
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:text="Sponsor Team"
                         android:textColor="@android:color/white"
-                        android:textSize="25sp"/>
+                        android:textSize="22sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -126,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Tanmay Khandait"
-                        android:textSize="20dp"
+                        android:textSize="17dp"
                         android:paddingLeft="10dp"
                         android:textColor="#ffffff"/>
 
@@ -142,7 +142,7 @@
                         android:paddingRight="50dp"
                         android:text="9325479574"
                         android:textColor="@color/colorAccent"
-                        android:textSize="20dp" />
+                        android:textSize="17dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -153,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Mohak Khare"
-                        android:textSize="20dp"
+                        android:textSize="17dp"
                         android:paddingLeft="20dp"
                         android:textColor="#ffffff"/>
 
@@ -169,7 +169,7 @@
                         android:paddingRight="50dp"
                         android:text="8853782217"
                         android:textColor="@color/colorAccent"
-                        android:textSize="20dp" />
+                        android:textSize="17dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -185,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:text="Public Relations Team"
                         android:textColor="@android:color/white"
-                        android:textSize="25sp"/>
+                        android:textSize="22sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Abhishek Katara"
-                        android:textSize="20dp"
+                        android:textSize="17dp"
                         android:paddingLeft="20dp"
                         android:textColor="#ffffff"/>
 
@@ -212,7 +212,7 @@
                         android:paddingRight="50dp"
                         android:text="9460208252"
                         android:textColor="@color/colorAccent"
-                        android:textSize="20dp" />
+                        android:textSize="17dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -223,7 +223,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Ujwal Tewari"
-                        android:textSize="20dp"
+                        android:textSize="17dp"
                         android:paddingLeft="20dp"
                         android:textColor="#ffffff"/>
 
@@ -239,7 +239,7 @@
                         android:paddingRight="50dp"
                         android:text="9455555683"
                         android:textColor="@color/colorAccent"
-                        android:textSize="20dp" />
+                        android:textSize="17dp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
