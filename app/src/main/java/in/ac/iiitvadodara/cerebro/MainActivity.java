@@ -81,9 +81,15 @@ public class MainActivity extends AppCompatActivity
                     if(event.getType() == 1){
                         if(!codingList.contains(event)){
                             codingList.add(event);
+                        }else{
+                            codingList.remove(event);
+                            codingList.add(event);
                         }
                     } else {
                         if(!gamingList.contains(event)){
+                            gamingList.add(event);
+                        }else{
+                            gamingList.remove(event);
                             gamingList.add(event);
                         }
                     }
